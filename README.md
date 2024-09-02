@@ -3,7 +3,7 @@
 This is an example project that demonstrates how to use zk-fetch on an Express.js server. The project is a simple API that fetches the current Ethereum price in USD from the CoinGecko API and generates a proof using zk-fetch.
 
 - Fetch Ethereum price (USD) from the CoinGecko API.
-- Generate a cryptographic proof for the Ethereum price using zk-fetch.
+- Generate a proof for the Ethereum price using zk-fetch.
 - Transform the proof data to be used on-chain
 
 ## Installation
@@ -49,18 +49,10 @@ To start the server, run:
 
 ## Endpoints
 
-### GET /
-
-- **Description**: Health check endpoint to verify if the API is running.
-- **Response**: A simple message:
-
-    ```text
-    gm gm! api is running
-    ```
 
 ### GET /generateProof
 
-- **Description**: Generates zkp of the current Ethereum price in USD from the CoinGecko API.
+- **Description**: Generates a proof of the current Ethereum price in USD from the CoinGecko API.
 - **Response**: Returns both the raw proof and the transformed proof for on-chain use.
 
 Example response:

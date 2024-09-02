@@ -35,6 +35,8 @@ This is an example project that demonstrates how to use zk-fetch on an Express.j
     ```
 
     You can get your `APP_ID` and `APP_SECRET` from [Reclaim Protocol Developer Portal](https://dev.reclaimprotocol.org).
+    - go to the [Reclaim Protocol Developer Portal](https://dev.reclaimprotocol.org)
+    - create a new public data (zkfetch) application and get the `APP_ID` and `APP_SECRET` from the application
 
 ## Usage
 

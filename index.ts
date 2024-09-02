@@ -3,7 +3,7 @@ import { ReclaimClient } from '@reclaimprotocol/zk-fetch';
 import dotenv from 'dotenv';
 dotenv.config();
 
-// you can get your APP_ID and APP_SECRET from the dev.reclaimprotocol.org
+// Initialize the ReclaimClient with the app id and app secret (you can get these from the Reclaim dashboard - https://dev.reclaimprotocol.org/) 
 const reclaimClient = new ReclaimClient(process.env.APP_ID!, process.env.APP_SECRET!);
 const app = express();
 
@@ -14,7 +14,7 @@ app.get('/', (_: Request, res: Response) => {
 
 app.get('/generateProof', async (_: Request, res: Response) => {
     try{
-        // URL to fetch the data from
+        // URL to fetch the data from - in this case, the price of Ethereum in USD from the CoinGecko API
         const url = 'https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd';
         /* 
         * Fetch the data from the API and generate a proof for the response. 
@@ -26,8 +26,11 @@ app.get('/generateProof', async (_: Request, res: Response) => {
         }, {
           // options for the proof generation
           responseMatches: [
-            /* search for the price of ethereum in the response body
-            the regex will capture the price in the named group 'price' */
+            /* 
+            * The proof will match the response body with the regex pattern (search for the price of ethereum in the response body 
+            the regex will capture the price in the named group 'price').
+            * to extract the price of Ethereum in USD. (e.g. {"ethereum":{"usd":3000}}) 
+            */ 
             {
                 "type": "regex",
                 "value": "\\{\"ethereum\":\\{\"usd\":(?<price>[\\d\\.]+)\\}\\}"
@@ -36,7 +39,7 @@ app.get('/generateProof', async (_: Request, res: Response) => {
         });
       
         if(!proof) {
-          return res.status(500).send('Failed to generate proof');
+          return res.status(400).send('Failed to generate proof');
         }
 
         // Transform the proof data to be used on-chain 

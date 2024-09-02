@@ -1,0 +1,22 @@
+{
+  "name": "zkfetch-express-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@reclaimprotocol/zk-fetch": "git+https://gitlab.reclaimprotocol.org/integrations/offchain/zk-fetch#58cf46cd9c24ba921099542d7254dccfc941ba42",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}

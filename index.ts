@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import { ReclaimClient } from '@reclaimprotocol/zk-fetch';
+import { Reclaim } from '@reclaimprotocol/js-sdk';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -41,9 +42,13 @@ app.get('/generateProof', async (_: Request, res: Response) => {
         if(!proof) {
           return res.status(400).send('Failed to generate proof');
         }
-
-        // Transform the proof data to be used on-chain 
-         const proofData = await ReclaimClient.transformForOnchain(proof);
+        // Verify the proof
+        const isValid = await Reclaim.verifySignedProof(proof);
+        if(!isValid) {
+          return res.status(400).send('Proof is invalid');
+        }
+        // Transform the proof data to be used on-chain (for the contract)
+         const proofData = await Reclaim.transformForOnchain(proof);
         return res.status(200).json({ transformedProof: proofData, proof });
     }
     catch(e){

@@ -11,7 +11,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@reclaimprotocol/zk-fetch": "git+https://gitlab.reclaimprotocol.org/integrations/offchain/zk-fetch#58cf46cd9c24ba921099542d7254dccfc941ba42",
+    "@reclaimprotocol/js-sdk": "^1.3.11",
+    "@reclaimprotocol/zk-fetch": "0.1.4",
     "express": "^4.19.2"
   },
   "devDependencies": {

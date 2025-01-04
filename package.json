@@ -5,7 +5,8 @@
   "scripts": {
     "start": "ts-node index.ts",
     "build": "tsc",
-    "download:zk-circuits": "node node_modules/@reclaimprotocol/zk-symmetric-crypto/lib/scripts/download-files"
+    "download:zk-circuits": "node node_modules/@reclaimprotocol/zk-symmetric-crypto/lib/scripts/download-files",
+    "dev": "ts-node-dev --respawn --transpile-only index.ts"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@types/express": "^4.17.21",
     "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.5.4"
   }
 }

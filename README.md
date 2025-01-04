@@ -26,7 +26,13 @@ This is an example project that demonstrates how to use zk-fetch on an Express.j
     npm install
     ```
 
-4. Copy the `.env.example` file to `.env`: 
+4. Download the zk-circuits:
+
+    ```bash
+    npm run download:zk-circuits
+    ```
+
+5. Copy the `.env.example` file to `.env`: 
 
     ```bash
     APP_ID=your_app_id
@@ -59,30 +65,47 @@ Example response:
 
 ```json
 {
-  "transformedProof": { 
-   {
+  "transformedProof": {
     "claimInfo": {
-      "context": "{\"extractedParameters\":{\"price\":\"2448.87\"},\"providerHash\":\"0xf44817617d1dfa5219f6aaa0d4901f9b9b7a6845bbf7b639d9bffeacc934ff9a\"}",
-      "parameters": "{\"body\":\"\",\"method\":\"GET\",\"responseMatches\":[{\"type\":\"regex\",\"value\":\"\\\\{\\\"ethereum\\\":\\\\{\\\"usd\\\":(?\u003Cprice\u003E[\\\\d\\\\.]+)\\\\}\\\\}\"}],\"responseRedactions\":[],\"url\":\"https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd\"}",
+      "context": "{\"extractedParameters\":{\"price\":\"3631.24\"},\"providerHash\":\"0xf24d5fcf27bb451191f7995e51c600440144d5d590ddf0daed50389498855189\"}",
+      "parameters": "{\"body\":\"\",\"method\":\"GET\",\"responseMatches\":[{\"type\":\"regex\",\"value\":\"\\\\{\\\"ethereum\\\":\\\\{\\\"usd\\\":(?\u003Cprice\u003E[\\\\d\\\\.]+)\\\\}\\\\}\"}],\"responseRedactions\":[{\"regex\":\"\\\\{\\\"ethereum\\\":\\\\{\\\"usd\\\":(?\u003Cprice\u003E[\\\\d\\\\.]+)\\\\}\\\\}\"}],\"url\":\"https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd\"}",
       "provider": "http"
     },
     "signedClaim": {
       "claim": {
         "epoch": 1,
-        "identifier": "0xb4ea4cae93f42790e1035a343a4a964c951300c97a63a0e1c8ee8cc1e5b56fdb",
-        "owner": "0xfdf550dc8274a85bff07e5fbdbbacfe76695654b",
-        "timestampS": 1725260426
+        "identifier": "0x2938ad9627cb3f7c75cb3c53d96c34fea0bdff32834c447d71660fa48fab4b7e",
+        "owner": "0x60c0460147eb204e505c1142bd3a8e7028137466",
+        "timestampS": 1735996331
       },
       "signatures": [
-        "0x02b6487c862b1e9d1023b2d5ab5da5bcfde109d4e2357dc344ba048ee1cd1edb7be1ed3737b3079c5d4782795f42ee78ab3a76211a6b8a8abbd2ff173c6ffdfe1b"
+        "0xac961a2d1d169f2f5838d6caf650a6aff7dd764b7c71bdf2c66518231392a11f4ea1917190c0d9579bd6180f8b04fd2a42c1d8a78abbb711cf47fdf6466ad0e31b"
       ]
     }
   },
-  },
-  "proof": { 
-    "request": {
-        ....
+  "proof": {
+    "claimData": {
+      "provider": "http",
+      "parameters": "{\"body\":\"\",\"method\":\"GET\",\"responseMatches\":[{\"type\":\"regex\",\"value\":\"\\\\{\\\"ethereum\\\":\\\\{\\\"usd\\\":(?\u003Cprice\u003E[\\\\d\\\\.]+)\\\\}\\\\}\"}],\"responseRedactions\":[{\"regex\":\"\\\\{\\\"ethereum\\\":\\\\{\\\"usd\\\":(?\u003Cprice\u003E[\\\\d\\\\.]+)\\\\}\\\\}\"}],\"url\":\"https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd\"}",
+      "owner": "0x60c0460147eb204e505c1142bd3a8e7028137466",
+      "timestampS": 1735996331,
+      "context": "{\"extractedParameters\":{\"price\":\"3631.24\"},\"providerHash\":\"0xf24d5fcf27bb451191f7995e51c600440144d5d590ddf0daed50389498855189\"}",
+      "identifier": "0x2938ad9627cb3f7c75cb3c53d96c34fea0bdff32834c447d71660fa48fab4b7e",
+      "epoch": 1
     },
+    "identifier": "0x2938ad9627cb3f7c75cb3c53d96c34fea0bdff32834c447d71660fa48fab4b7e",
+    "signatures": [
+      "0xac961a2d1d169f2f5838d6caf650a6aff7dd764b7c71bdf2c66518231392a11f4ea1917190c0d9579bd6180f8b04fd2a42c1d8a78abbb711cf47fdf6466ad0e31b"
+    ],
+    "extractedParameterValues": {
+      "price": "3631.24"
+    },
+    "witnesses": [
+      {
+        "id": "0x244897572368eadf65bfbc5aec98d8e5443a9072",
+        "url": "wss://attestor.reclaimprotocol.org/ws"
+      }
+    ]
   }
 }
 ```

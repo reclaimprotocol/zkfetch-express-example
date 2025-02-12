@@ -34,11 +34,11 @@ app.get('/generateProof', async (_: Request, res: Response) => {
             */ 
             {
                 "type": "regex",
-                "value": "\\{\"ethereum\":\\{\"usd\":(?<price>[\\d\\.]+)\\}\\}"
+                "value": 'ethereum":{"usd":(?<price>.*?)}}',
             }
           ],
           responseRedactions: [{
-            regex: "\\{\"ethereum\":\\{\"usd\":(?<price>[\\d\\.]+)\\}\\}"
+            regex: 'ethereum":{"usd":(?<price>.*?)}}'
           }]
         });
       

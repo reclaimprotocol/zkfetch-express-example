@@ -5,7 +5,7 @@
   "scripts": {
     "start": "ts-node index.ts",
     "build": "tsc",
-    "download:zk-circuits": "node node_modules/@reclaimprotocol/zk-symmetric-crypto/lib/scripts/download-files",
+    "download:zk-circuits": "node download-zk.js",
     "dev": "ts-node-dev --respawn --transpile-only index.ts"
   },
   "keywords": [],
@@ -14,7 +14,8 @@
   "description": "",
   "dependencies": {
     "@reclaimprotocol/js-sdk": "^2.1.3",
-    "@reclaimprotocol/zk-fetch": "0.3.0",
+    "@reclaimprotocol/zk-fetch": "0.3.1",
+    "@reclaimprotocol/zk-symmetric-crypto": "3.0.4",
     "express": "^4.19.2",
     "jsdom": "^25.0.1"
   },

@@ -7,9 +7,6 @@ const TARGET_DIR = path.join(
   process.cwd(),
   "node_modules",
   "@reclaimprotocol",
-  "attestor-core",
-  "node_modules",
-  "@reclaimprotocol",
   "zk-symmetric-crypto",
   "resources"
 );

@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import { ReclaimClient } from '@reclaimprotocol/zk-fetch';
-import { transformForOnchain, verifyProof } from '@reclaimprotocol/js-sdk';
+import { transformForOnchain, verifyProof, Proof } from '@reclaimprotocol/js-sdk';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -51,7 +51,7 @@ app.get('/generateProof', async (_: Request, res: Response) => {
           return res.status(400).send('Proof is invalid');
         }
         // Transform the proof data to be used on-chain (for the contract)
-         const proofData = await transformForOnchain(proof);
+         const proofData = await transformForOnchain(proof as Proof);
         return res.status(200).json({ transformedProof: proofData, proof });
     }
     catch(e){

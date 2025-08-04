@@ -4,11 +4,14 @@ const https = require('https');
 
 const REPO = "reclaimprotocol/zk-symmetric-crypto";
 const TARGET_DIR = path.join(
-  process.cwd(),
-  "node_modules",
-  "@reclaimprotocol",
-  "zk-symmetric-crypto",
-  "resources"
+    process.cwd(),
+    "node_modules",
+    "@reclaimprotocol",
+    "attestor-core",
+    "node_modules",
+    "@reclaimprotocol",
+    "zk-symmetric-crypto",
+    "resources"
 );
 const TEMP_DIR = path.join(process.cwd(), "zk-resources");
 

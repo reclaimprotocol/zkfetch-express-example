@@ -23,8 +23,5 @@
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.4.2"
-  },
-  "overrides": {
-    "@reclaimprotocol/tls": "git+ssh://git@github.com/reclaimprotocol/tls.git#a3c8988fc68da57c96c1cc75400dc5e02d1c1d7d"
   }
 }
